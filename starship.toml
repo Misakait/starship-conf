@@ -1,0 +1,153 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
+# format = '$all'
+
+# Which is equivalent to
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$fossil_branch\
+$fossil_metrics\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$pijul_channel\
+$docker_context\
+$package\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$gleam\
+$golang\
+$guix_shell\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$gradle\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$quarto\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$typst\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$nix_shell\
+$conda\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$nats\
+$direnv\
+$env_var\
+$mise\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
+$jobs\
+$battery\
+$time\
+$status\
+$line_break\
+$os\
+$container\
+$netns\
+$shell\
+$character"""
+
+[hostname]
+ssh_only = false
+format = '[$hostname]($style) '
+style = 'bold yellow'
+
+[username]
+show_always = true
+# 关键改动：在用户名后面加上 "@" 符号
+format = '[$user]($style)[@]($style)'
+
+[status]
+disabled = false
+symbol = ""
+# 关键: 设置一个虚拟的成功符号来强制模块在命令成功时也显示。
+# 如果此项为空，则成功时不显示任何内容。
+success_symbol = "" 
+# 启用管道状态报告
+pipestatus = true
+# 设置成功(绿色)和失败(红色)的样式
+style = "bold red"
+success_style = "#39C5BB"
+pipe_separator_style = "white"
+# --- 配置格式 ---
+# 1. 单个命令的格式
+#    例如: `ls -jfkd` -> [1]
+#    变量 ($status) 会显示退出码, ($style) 会根据成败应用颜色
+format = '\[[($status)]($style)\] '
+# 2. 整个管道命令的最终格式
+#    $pipestatus 变量会包含由下面两项配置生成的结果 (例如 "0|1")
+pipestatus_format = '\[[($pipestatus)]($success_style)\] '
+# 3. 管道中每个命令状态码之间的分隔符
+pipestatus_separator = '|'
+# 4. 管道中每一个命令片段的格式
+#    这里我们只取它的数字退出码 ($status)
+#    Starship会收集每个片段的结果，用分隔符连接，然后交给 pipestatus_format 处理
+pipestatus_segment_format = '[$status]($style)'
+# [exit_code]
+# disabled = false
+# always_enabled = true
+# symbol = ""
+# success_symbol = ""
+# show_code = true
+# threshold = 0
+# format = "[$code] "
+# show_pipe_code = true
+# pipe_delimiter = "|"
+
+# 显示当前时间
+[time]
+disabled = false
+
+
+[directory]
+truncation_length = 4  # 默认的只显示 3 个路径有点太短了
