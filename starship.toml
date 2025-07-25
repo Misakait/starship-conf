@@ -100,9 +100,11 @@ $character"""
 [hostname]
 ssh_only = false
 format = '[$hostname]($style) '
-style = 'bold yellow'
-
+# style = 'bold yellow'
+style = '#D7AFFF'
 [username]
+style_root = '#D7AFFF'
+style_user = '#D7AFFF'
 show_always = true
 # 关键改动：在用户名后面加上 "@" 符号
 format = '[$user]($style)[@]($style)'
@@ -118,7 +120,7 @@ pipestatus = true
 # 设置成功(绿色)和失败(红色)的样式
 style = "bold red"
 success_style = "#39C5BB"
-pipe_separator_style = "white"
+# pipe_separator_style = "white"
 # --- 配置格式 ---
 # 1. 单个命令的格式
 #    例如: `ls -jfkd` -> [1]
